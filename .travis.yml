@@ -9,13 +9,13 @@ matrix:
   include:
     - rust: stable
       env:
-        - FEATURES='--features curve25519-dalek serde'
+        - FEATURES='--features "curve25519-dalek serde"'
     - rust: nightly
       env:
         - FEATURES='--all-features'
 script:
   - |
-    cargo build --verbose --all --examples --tests --benches "$FEATURES" &&
-    cargo test --all --verbose "$FEATURES" # &&
+    cargo build --verbose --all --examples --tests --benches $FEATURES &&
+    cargo test --all --verbose $FEATURES # &&
     # cargo fmt --all -- --check
     # cargo clippy --all -- -D all
